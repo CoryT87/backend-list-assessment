@@ -12,8 +12,8 @@ Kenzie assignment: List2
 # http://code.google.com/edu/languages/google-python-class/
 
 # Instructions:
-# Complete each of these list manipulation exercises in the same way as the 
-# previous List1 excercises.
+# Complete each of these list manipulation exercises in the same way as
+# the previous List1 excercises.
 
 # D. Given a list of numbers, return a list where
 # all adjacent == elements have been reduced to a single element,
@@ -23,18 +23,23 @@ Kenzie assignment: List2
 
 
 def remove_adjacent(nums):
-    # your code here
-    return
+    nums = list(dict.fromkeys(nums))
+    return nums
+# didn't pass the last test
+
+# E. Given two lists sorted in increasing order, create and return a
+# merged list of all the elements in sorted order. You may modify
+# the passed in lists. The solution should work in "linear" time,
+# making a single pass of both lists.
+# Hint: Don't use `sort` or `sorted` -- they are not O(n) linear time
+# and the two lists are already provided in ascending sorted order.
 
 
-# E. Given two lists sorted in increasing order, create and return a merged
-# list of all the elements in sorted order. You may modify the passed in lists.
-# The solution should work in "linear" time, making a single pass of both lists.
-# Hint: Don't use `sort` or `sorted` -- they are not O(n) linear time, and the two lists
-# are already provided in ascending sorted order.
 def linear_merge(list1, list2):
-    # your code here
-    return
+    newList1 = list1 + list2
+    newList2 = sorted(list1 + list2)
+    return newList1
+    return newList2
 
 
 # Simple provided test() function used in main() to print
@@ -44,7 +49,8 @@ def test(got, expected):
         prefix = ' OK '
     else:
         prefix = '  X '
-    print('{} got: {}     expected: {}'.format(prefix, repr(got), repr(expected)))
+    print('{} got: {}     expected: {}'.format(prefix, repr(got),
+                                               repr(expected)))
 
 
 # Calls the above functions with interesting inputs.
