@@ -11,10 +11,10 @@ Kenzie List1 Assignment
 # http://code.google.com/edu/languages/google-python-class/
 
 # Instructions:
-# Complete each function below by writing the code for it. main() is already 
-# set up to test all the functions with a few different inputs, printing 'OK' when 
-# each function returns the correct result.
-# The starter code for each function includes a bare 'return' which is just a 
+# Complete each function below by writing the code for it. main() is already
+# set up to test all the functions with a few different inputs, printing 'OK'
+# when each function returns the correct result.
+# The starter code for each function includes a bare 'return' which is just a
 # placeholder for your code.
 
 
@@ -26,9 +26,12 @@ Kenzie List1 Assignment
 
 
 def match_ends(words):
-    # your code here
-    return
-
+    a = 0
+    for i in words:
+        if len(i) >= 2:
+            if i[0] == i[-1]:
+                a += 1
+    return a
 
 # B. front_x
 # Given a list of strings, return a list with the strings
@@ -38,8 +41,14 @@ def match_ends(words):
 # Hint: this can be done by making 2 lists and sorting each of them
 # before combining them.
 def front_x(words):
-    # your code here
-    return
+    words.sort(reverse=True)
+    x = words[:2]
+    x.sort()
+    words.pop(0)
+    words.pop(0)
+    words.sort()
+    newList = x + words
+    return newList
 
 
 # C. sort_last
@@ -49,8 +58,9 @@ def front_x(words):
 # [(2, 2), (1, 3), (3, 4, 5), (1, 7)]
 # Hint: use a custom key= function to extract the last element form each tuple.
 def sort_last(tuples):
-    # your code here
-    return
+    start, *middle, end = tuples
+    tuples = [end, *middle, start]
+    return tuples
 
 
 # Simple provided test() function used in main() to print
@@ -60,7 +70,8 @@ def test(got, expected):
         prefix = ' OK '
     else:
         prefix = '  X '
-    print('{} got: {}     expected: {}'.format(prefix, repr(got), repr(expected)))
+    print('{} got: {}     expected: {}'.format(prefix,
+                                               repr(got), repr(expected)))
 
 
 # Calls the above functions with interesting inputs.

@@ -12,8 +12,8 @@ Kenzie assignment: List2
 # http://code.google.com/edu/languages/google-python-class/
 
 # Instructions:
-# Complete each of these list manipulation exercises in the same way as the 
-# previous List1 excercises.
+# Complete each of these list manipulation exercises in the same way as
+# the previous List1 excercises.
 
 # D. Given a list of numbers, return a list where
 # all adjacent == elements have been reduced to a single element,
@@ -23,18 +23,32 @@ Kenzie assignment: List2
 
 
 def remove_adjacent(nums):
-    # your code here
-    return
+    newList = []
+    for i in range(len(nums)-1):
+        if nums[i] != nums[i+1]:
+            newList.append(nums[i])
+    if len(nums):
+        newList.append(nums[-1])
+    return newList
+
+# E. Given two lists sorted in increasing order, create and return a
+# merged list of all the elements in sorted order. You may modify
+# the passed in lists. The solution should work in "linear" time,
+# making a single pass of both lists.
+# Hint: Don't use `sort` or `sorted` -- they are not O(n) linear time
+# and the two lists are already provided in ascending sorted order.
 
 
-# E. Given two lists sorted in increasing order, create and return a merged
-# list of all the elements in sorted order. You may modify the passed in lists.
-# The solution should work in "linear" time, making a single pass of both lists.
-# Hint: Don't use `sort` or `sorted` -- they are not O(n) linear time, and the two lists
-# are already provided in ascending sorted order.
 def linear_merge(list1, list2):
-    # your code here
-    return
+    newList = []
+    while list1 and list2:
+        if list1[0:] >= list2[0:]:
+            newList.append(list2.pop(0))
+        else:
+            newList.append(list1.pop(0))
+    newList += list1
+    newList += list2
+    return newList
 
 
 # Simple provided test() function used in main() to print
@@ -44,7 +58,8 @@ def test(got, expected):
         prefix = ' OK '
     else:
         prefix = '  X '
-    print('{} got: {}     expected: {}'.format(prefix, repr(got), repr(expected)))
+    print('{} got: {}     expected: {}'.format(prefix, repr(got),
+                                               repr(expected)))
 
 
 # Calls the above functions with interesting inputs.
