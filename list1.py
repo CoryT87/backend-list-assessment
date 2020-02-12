@@ -26,9 +26,12 @@ Kenzie List1 Assignment
 
 
 def match_ends(words):
-    # your code here
-    return
-
+    a = 0
+    for i in words:
+        if len(i) >= 2:
+            if i[0] == i[-1]:
+                a += 1
+    return a
 
 # B. front_x
 # Given a list of strings, return a list with the strings
